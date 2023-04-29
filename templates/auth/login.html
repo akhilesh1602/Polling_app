@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col s6 offset-s3 ">
+          <div class="card">
+            <div class="card-content">
+              <span class="cardtitle">Login</span>
+              <form action="" method="post">
+                {% csrf_token %}
+
+                {% for fields in form %}
+                <div class="input-field">
+                    {{ fields }}
+                </div>
+                {% endfor %}
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                 
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+{% endblock %}
