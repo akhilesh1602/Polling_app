@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% include 'main/components/navbar.html' %}
+{% include 'main/components/navbar.html' %}
 <div class="container">
-        <div class="row">
-            <h4>{{ question.content }}</h4>
-        </div>
-
+    <div class="row">
+        <h4>{{ question.content }}</h4>
+    </div>
+    <form action="" method="POST">
+        {% csrf_token %}
         <div class="row">
             <div class="col-6">
                 <div class="collection">
                     {% for choice in question.choice_set.all %}
                     <div class="collection-item">
                         <label>
-                            <input name="group1" type="radio"/>
+                            <input class="with-gap" name="choice" type="radio" value="{{choice.id}}" />
                             <span>{{choice.content}}</span>
                         </label>
                     </div>
@@ -22,8 +23,10 @@
         </div>
         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
         </button>
-                
-    </div>
+    </form>
+   
+
+</div>
 
 
 
