@@ -12,10 +12,12 @@
                 <div class="collection">
                     {% for choice in question.choice_set.all %}
                     <div class="collection-item">
+                        
                         <label>
                             <input class="with-gap" name="choice" type="radio" value="{{choice.id}}" />
                             <span>{{choice.content}}</span>
                         </label>
+                    
                     </div>
                     {% endfor %}
                 </div>

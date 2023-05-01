@@ -19,13 +19,17 @@ class Question(SingleObjectMixin, FormView):
     template_name = 'main/question.html'
     form_class = forms.AnswerForm
 
+
+
+
+    
     def form_valid(self, form):
         obj = form.save(commit = False)
         obj.question = self.get_object()
         obj.user = self.request.user
         obj.save()
         return HttpResponseRedirect('/')
-    
+
     def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         return super().post(request, *args, **kwargs)
